@@ -92,7 +92,7 @@ export default function VenirEnCouple() {
           </div>
           <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-lg reveal">
             <Image
-              src="/images/luemen-rutkowski-ZWbBxZ6zTwM-unsplash.jpg"
+              src="/images/timo-stern-EvcUtLF12XQ-unsplash.jpg"
               alt="Thérapie de couple"
               fill
               className="object-cover"

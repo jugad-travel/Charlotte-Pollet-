@@ -49,7 +49,7 @@ export default function ParentsEnfant() {
         <div ref={sectionRef} className="grid md:grid-cols-2 gap-12 items-center mb-12">
           <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-lg reveal">
             <Image
-              src="/images/timo-stern-EvcUtLF12XQ-unsplash.jpg"
+              src="/images/luemen-rutkowski-ZWbBxZ6zTwM-unsplash.jpg"
               alt="Communication parent-enfant"
               fill
               className="object-cover"
