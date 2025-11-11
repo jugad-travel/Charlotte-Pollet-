@@ -1,17 +1,29 @@
+import Image from 'next/image';
+
 export default function Accompagnement() {
   return (
     <section id="accompagnement" className="py-20 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif text-primary mb-6">
-            Christine SOLIGNAC
-          </h2>
-          <h3 className="text-2xl md:text-3xl font-serif text-primary mb-8">
-            Mettre des mots, être écouté(S), puiser dans ses capacités,
-          </h3>
-          <h3 className="text-2xl md:text-3xl font-serif text-primary mb-8">
-            reprendre confiance en soi, poser des choix
-          </h3>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+          <div className="relative h-[400px] rounded-lg overflow-hidden">
+            <Image
+              src="/images/klara-kulikova-tS_p3fpe8iQ-unsplash.jpg"
+              alt="Accompagnement bienveillant"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <h2 className="text-4xl md:text-5xl font-serif text-primary mb-6">
+              Christine SOLIGNAC
+            </h2>
+            <h3 className="text-2xl md:text-3xl font-serif text-primary mb-8">
+              Mettre des mots, être écouté(S), puiser dans ses capacités,
+            </h3>
+            <h3 className="text-2xl md:text-3xl font-serif text-primary mb-8">
+              reprendre confiance en soi, poser des choix
+            </h3>
+          </div>
         </div>
 
         <div className="prose prose-lg max-w-none text-gray-700 space-y-6">

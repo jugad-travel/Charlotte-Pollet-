@@ -1,7 +1,9 @@
+import Image from 'next/image';
+
 export default function Enfants() {
   return (
     <section className="py-20 bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-serif text-primary mb-4">
             Parler d'affectivité
@@ -14,7 +16,16 @@ export default function Enfants() {
           </h3>
         </div>
 
-        <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
+          <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg">
+            <Image
+              src="/images/timo-stern-EvcUtLF12XQ-unsplash.jpg"
+              alt="Communication parent-enfant"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
           <p className="text-xl leading-relaxed">
             Vous souhaitez pouvoir parler à vos enfants d'affectivité et de sexualité mais vous sentez mal à l'aise ou démunis pour le faire ? Vous sentez que vous avez besoin d'être accompagné(e) pour poser des limites à votre enfant pour l'aider à grandir ?
           </p>
@@ -34,6 +45,7 @@ export default function Enfants() {
           <p className="text-lg leading-relaxed">
             L'espace de mon cabinet peut vous aider à préparer ces échanges et/ou à les accompagner avec votre enfant.
           </p>
+          </div>
         </div>
       </div>
     </section>

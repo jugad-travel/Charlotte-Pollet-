@@ -1,10 +1,19 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Hero() {
   return (
     <section className="relative min-h-[85vh] flex items-center justify-center bg-white">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white"></div>
+        <Image
+          src="/images/casey-horner-JIdmuiF9luY-unsplash.jpg"
+          alt="Conseil conjugal et familial"
+          fill
+          className="object-cover opacity-20"
+          priority
+          quality={90}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/60 to-white"></div>
       </div>
       
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

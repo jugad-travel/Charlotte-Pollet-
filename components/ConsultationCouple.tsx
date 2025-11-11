@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function ConsultationCouple() {
   return (
     <section className="py-20 bg-white">
@@ -14,12 +16,23 @@ export default function ConsultationCouple() {
           </h3>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-12">
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
           <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
             <p className="text-xl leading-relaxed">
               La relation d'attachement amoureux sollicite le plus haut degré des attentes affectives. En couple, on arrive chacun avec son histoire passée, celle que l'on peut nommer et celle qui nous a façonnés de l'intérieur et que l'on ne perçoit pas toujours. Le couple est la rencontre de deux existentiels qui vont se découvrir et s'ajuster pour apprendre à faire grandir la relation conjugale. Elle se confronte à l'histoire de chacun et au quotidien de la vie qui peuvent être source de blocages.
             </p>
           </div>
+          <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg">
+            <Image
+              src="/images/luemen-rutkowski-ZWbBxZ6zTwM-unsplash.jpg"
+              alt="Thérapie de couple"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+
+        <div className="max-w-4xl mx-auto space-y-12">
 
           <div className="bg-gray-50 p-8 rounded-lg">
             <h3 className="text-2xl font-serif text-primary mb-6">

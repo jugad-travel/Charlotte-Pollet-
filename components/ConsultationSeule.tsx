@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function ConsultationSeule() {
   return (
     <section className="py-20 bg-gray-50">
@@ -11,16 +13,29 @@ export default function ConsultationSeule() {
           </h2>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="prose prose-lg max-w-none text-gray-700 space-y-6 mb-12">
-            <p className="text-xl leading-relaxed">
-              Consulter c'est d'abord être écouté et entendu dans ce que nous vivons. C'est ouvrir l'opportunité de mieux se comprendre soi-même, de mieux s'estimer, de mieux se positionner pour faire bouger sa relation à l'autre.
-            </p>
-
-            <p className="leading-relaxed">
-              Des difficultés relationnelles personnelles, familiales, conjugales peuvent ouvrir à des questionnements, nous décourager, nous donner le sentiment de perdre pied, fragiliser notre estime de soi.
-            </p>
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
+          <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg">
+            <Image
+              src="/images/caleb-ekeroth-wSBQFWF77lI-unsplash.jpg"
+              alt="Consultation individuelle"
+              fill
+              className="object-cover"
+            />
           </div>
+          <div>
+            <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+              <p className="text-xl leading-relaxed">
+                Consulter c'est d'abord être écouté et entendu dans ce que nous vivons. C'est ouvrir l'opportunité de mieux se comprendre soi-même, de mieux s'estimer, de mieux se positionner pour faire bouger sa relation à l'autre.
+              </p>
+
+              <p className="leading-relaxed">
+                Des difficultés relationnelles personnelles, familiales, conjugales peuvent ouvrir à des questionnements, nous décourager, nous donner le sentiment de perdre pied, fragiliser notre estime de soi.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
 
           <div className="bg-white p-8 rounded-lg shadow-sm">
             <h3 className="text-2xl font-serif text-primary mb-6">
