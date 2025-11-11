@@ -17,18 +17,18 @@ export default function Footer() {
             <h4 className="text-lg font-serif mb-4">Menu</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/#accompagnement" className="hover:opacity-80 transition">
+                <Link href="/accompagnement" className="hover:opacity-80 transition">
                   Mon accompagnement
                 </Link>
               </li>
               <li>
-                <Link href="/#qui-suis-je" className="hover:opacity-80 transition">
+                <Link href="/qui-suis-je" className="hover:opacity-80 transition">
                   Qui suis-je
                 </Link>
               </li>
               <li>
-                <Link href="/#contact" className="hover:opacity-80 transition">
-                  Contact
+                <Link href="/contact" className="hover:opacity-80 transition">
+                  Contact & rendez-vous
                 </Link>
               </li>
             </ul>
@@ -57,8 +57,17 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-primary-light mt-8 pt-8 text-center text-sm opacity-75">
-          <p>© {new Date().getFullYear()} Christine Solignac - Conseil Conjugal et Familial</p>
+        <div className="border-t border-primary-light mt-8 pt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm opacity-75 mb-4">
+            <div>
+              <p>© {new Date().getFullYear()} Christine Solignac - Conseil Conjugal et Familial</p>
+            </div>
+            <div className="text-right">
+              <Link href="/mentions-legales" className="hover:opacity-80 transition">
+                Mentions légales
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

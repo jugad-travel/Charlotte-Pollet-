@@ -18,17 +18,17 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/#accompagnement" className="text-primary hover:opacity-80 transition">
+            <Link href="/accompagnement" className="text-primary hover:opacity-80 transition">
               Mon accompagnement
             </Link>
-            <Link href="/#qui-suis-je" className="text-primary hover:opacity-80 transition">
+            <Link href="/qui-suis-je" className="text-primary hover:opacity-80 transition">
               Qui suis-je
             </Link>
-            <Link href="/#contact" className="text-primary hover:opacity-80 transition">
-              Contact
+            <Link href="/contact" className="text-primary hover:opacity-80 transition">
+              Contact & rendez-vous
             </Link>
             <Link 
-              href="/#rendez-vous" 
+              href="/contact" 
               className="bg-primary text-white px-6 py-2 rounded-full hover:bg-primary-dark transition"
             >
               Prendre rendez-vous
@@ -55,28 +55,28 @@ export default function Navbar() {
         {isMenuOpen && (
           <div className="md:hidden pb-4 space-y-4">
             <Link 
-              href="/#accompagnement" 
+              href="/accompagnement" 
               className="block text-primary py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Mon accompagnement
             </Link>
             <Link 
-              href="/#qui-suis-je" 
+              href="/qui-suis-je" 
               className="block text-primary py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Qui suis-je
             </Link>
             <Link 
-              href="/#contact" 
+              href="/contact" 
               className="block text-primary py-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              Contact
+              Contact & rendez-vous
             </Link>
             <Link 
-              href="/#rendez-vous" 
+              href="/contact" 
               className="block bg-primary text-white px-6 py-2 rounded-full text-center"
               onClick={() => setIsMenuOpen(false)}
             >
