@@ -1,22 +1,18 @@
 import Hero from '@/components/home/Hero';
-import PourQui from '@/components/home/PourQui';
-import CeQueJePropose from '@/components/home/CeQueJePropose';
-import PourquoiConsulter from '@/components/home/PourquoiConsulter';
-import OuConsulter from '@/components/home/OuConsulter';
-import LeCabinet from '@/components/home/LeCabinet';
-import EncadreEthique from '@/components/home/EncadreEthique';
+import QuEstCeQueImago from '@/components/home/QuEstCeQueImago';
+import PourquoiFaireTherapie from '@/components/home/PourquoiFaireTherapie';
+import AQuiSAdresse from '@/components/home/AQuiSAdresse';
+import Temoignages from '@/components/home/Temoignages';
 import CTASection from '@/components/home/CTASection';
 
 export default function Home() {
   return (
     <div className="min-h-screen">
       <Hero />
-      <PourQui />
-      <CeQueJePropose />
-      <PourquoiConsulter />
-      <OuConsulter />
-      <LeCabinet />
-      <EncadreEthique />
+      <QuEstCeQueImago />
+      <PourquoiFaireTherapie />
+      <AQuiSAdresse />
+      <Temoignages />
       <CTASection />
     </div>
   );

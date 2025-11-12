@@ -1,12 +1,12 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
 
 export default function Hero() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [imagePosition, setImagePosition] = useState('center center');
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRefMobile = useRef<HTMLVideoElement>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -24,21 +24,51 @@ export default function Hero() {
       observer.observe(sectionRef.current);
     }
 
-    // Ajuster position image sur mobile
-    const updateImagePosition = () => {
-      if (window.innerWidth < 768) {
-        setImagePosition('center center');
-      } else {
-        setImagePosition('center center');
+    // Gérer le chargement et la lecture de la vidéo avec transition
+    const handleVideoLoad = () => {
+      setVideoLoaded(true);
+    };
+
+    const playVideo = async (video: HTMLVideoElement | null) => {
+      if (video) {
+        try {
+          // Transition douce au démarrage
+          video.style.opacity = '0';
+          video.style.transition = 'opacity 1.5s ease-in-out';
+          
+          // Attendre que la vidéo soit prête
+          if (video.readyState >= 2) {
+            await video.play();
+            setTimeout(() => {
+              video.style.opacity = '1';
+            }, 200);
+          } else {
+            video.addEventListener('loadeddata', () => {
+              video.play().then(() => {
+                setTimeout(() => {
+                  video.style.opacity = '1';
+                }, 200);
+              });
+            }, { once: true });
+          }
+        } catch (error) {
+          console.log('Erreur de lecture vidéo:', error);
+        }
       }
     };
 
-    updateImagePosition();
-    window.addEventListener('resize', updateImagePosition);
+    if (videoRef.current) {
+      videoRef.current.addEventListener('loadeddata', handleVideoLoad);
+      playVideo(videoRef.current);
+    }
+
+    if (videoRefMobile.current) {
+      videoRefMobile.current.addEventListener('loadeddata', handleVideoLoad);
+      playVideo(videoRefMobile.current);
+    }
 
     return () => {
       observer.disconnect();
-      window.removeEventListener('resize', updateImagePosition);
     };
   }, []);
 
@@ -48,60 +78,53 @@ export default function Hero() {
         {/* Version Mobile */}
         <div className="md:hidden relative min-h-[85vh] w-full overflow-hidden">
           <div className="relative h-full w-full min-h-[85vh]">
-            <Image
-              src="/images/christine solignac B&W.png"
-              alt="Christine Solignac"
-              fill
-              className="object-cover"
-              style={{ objectPosition: 'center center' }}
-              priority
-              quality={90}
-            />
-            {/* Dégradé vertical léger pour équilibrer */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/30"></div>
+            <video
+              ref={videoRefMobile}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ opacity: videoLoaded ? 1 : 0, transition: 'opacity 1s ease-in-out' }}
+            >
+              <source src="/images/66823-520427407_small.mp4" type="video/mp4" />
+            </video>
+            {/* Dégradé de gauche à droite */}
+            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent z-0"></div>
           </div>
           
-          {/* Dégradé horizontal pour la lisibilité du texte */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent z-0"></div>
-          
-          {/* Contenu superposé */}
-          <div className="absolute inset-0 flex flex-col justify-center px-6 py-12 z-10">
-            <div className="max-w-lg">
-              <div className="space-y-6">
-                {/* Titre avec séparation élégante */}
-                <div className="space-y-3 pb-4 border-b border-primary/20">
-                  <h1 className="text-3xl font-serif text-primary leading-tight drop-shadow-sm">
-                    Conseil conjugal et familial
+          <div className="absolute inset-0 flex flex-col justify-center px-4 sm:px-6 py-8 sm:py-12 z-10">
+            <div className="max-w-lg w-full">
+              <div className="space-y-4 sm:space-y-6">
+                <div className="space-y-2 sm:space-y-3 pb-3 sm:pb-4 border-b border-primary/20">
+                  <h1 className="text-2xl sm:text-3xl font-serif text-primary leading-tight drop-shadow-sm">
+                    Thérapie de couple Imago
                   </h1>
-                  <p className="text-xl font-serif text-primary/90 italic drop-shadow-sm">
-                    & Thérapie de couple
+                  <p className="text-lg sm:text-xl font-serif text-primary/90 italic drop-shadow-sm">
+                    Charlotte Pollet
                   </p>
                 </div>
                 
-                {/* Premier paragraphe avec emphase */}
-                <p className="text-base text-gray-800 leading-relaxed font-light tracking-wide drop-shadow-sm">
-                  Retrouver un dialogue apaisé, clarifier vos choix, restaurer la confiance — <span className="font-normal text-primary">seul(e), en couple ou en famille</span>.
+                <p className="text-sm sm:text-base text-gray-800 leading-relaxed font-light tracking-wide drop-shadow-sm">
+                  Une méthode puissante et résolument constructive pour dissoudre les conflits et remettre du lien dans la relation.
                 </p>
 
-                {/* Séparateur décoratif */}
                 <div className="flex items-center space-x-2 py-2">
                   <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/40"></div>
                   <div className="flex-1 h-px bg-gradient-to-l from-transparent via-primary/30 to-transparent"></div>
                 </div>
 
-                {/* Deuxième paragraphe */}
-                <p className="text-sm text-gray-700 leading-relaxed drop-shadow-sm">
-                  Dans un cadre <span className="font-medium text-gray-800">confidentiel et sécurisant</span>, je vous aide à mettre des mots sur ce que vous vivez, à comprendre vos fonctionnements relationnels et à poser des choix libres pour avancer.
+                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed drop-shadow-sm">
+                  Le conflit y est considéré comme une très belle opportunité de croissance qui permet une meilleure connaissance de soi et de son partenaire.
                 </p>
 
-                {/* Bouton avec espacement raffiné */}
-                <div className="pt-6">
+                <div className="pt-3 sm:pt-4">
                   <a 
                     href="https://planify.fr"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block bg-primary text-white px-8 py-4 rounded-full text-base text-center font-medium hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+                    className="inline-block bg-primary text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-sm sm:text-base text-center font-medium hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl transform hover:scale-[1.02] w-full sm:w-auto"
                   >
                     Prendre rendez-vous
                   </a>
@@ -113,47 +136,47 @@ export default function Hero() {
 
         {/* Version Desktop */}
         <div className="hidden md:block relative h-[90vh] w-full overflow-hidden">
-          <Image
-            src="/images/christine solignac B&W.png"
-            alt="Christine Solignac"
-            fill
-            className="object-cover"
-            style={{ objectPosition: 'center center' }}
-            priority
-            quality={90}
-          />
-          {/* Dégradé - photo à droite, texte à gauche */}
-          <div className="absolute inset-0 bg-gradient-to-l from-white via-white/60 to-transparent"></div>
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ opacity: videoLoaded ? 1 : 0, transition: 'opacity 1s ease-in-out' }}
+          >
+            <source src="/images/66823-520427407_small.mp4" type="video/mp4" />
+          </video>
+          {/* Dégradé de gauche à droite */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent"></div>
           
-          {/* Contenu superposé à gauche */}
-          <div className="absolute inset-0 flex items-center justify-start pl-16 lg:pl-24 xl:pl-32 z-10">
+          <div className="absolute inset-0 flex items-center justify-start px-4 md:pl-12 lg:pl-16 xl:pl-24 2xl:pl-32 z-10">
             <div className="max-w-2xl text-left">
-              <h1 className="text-6xl lg:text-7xl font-serif text-primary mb-6 leading-tight">
-                Conseil conjugal et familial
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-primary mb-4 md:mb-6 leading-tight">
+                Thérapie de couple Imago
                 <br />
-                <span className="text-5xl lg:text-6xl">& Thérapie de couple</span>
+                <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl italic">Charlotte Pollet</span>
               </h1>
               
-              <p className="text-2xl text-gray-700 mb-8 leading-relaxed font-light">
-                Retrouver un dialogue apaisé, clarifier vos choix, restaurer la confiance — seul(e), en couple ou en famille.
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-6 md:mb-8 leading-relaxed font-light">
+                Une méthode puissante et résolument constructive pour dissoudre les conflits et remettre du lien dans la relation.
               </p>
 
-              {/* Séparateur décoratif */}
-              <div className="flex items-center space-x-3 py-4 mb-8">
+              <div className="flex items-center space-x-3 py-3 md:py-4 mb-6 md:mb-8">
                 <div className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
                 <div className="w-2 h-2 rounded-full bg-primary/40"></div>
                 <div className="flex-1 h-px bg-gradient-to-l from-transparent via-primary/30 to-transparent"></div>
               </div>
 
-              <p className="text-lg text-gray-600 mb-12 leading-relaxed">
-                Dans un cadre confidentiel et sécurisant, je vous aide à mettre des mots sur ce que vous vivez, à comprendre vos fonctionnements relationnels et à poser des choix libres pour avancer.
+              <p className="text-base sm:text-lg text-gray-600 mb-8 md:mb-12 leading-relaxed">
+                Le conflit y est considéré comme une très belle opportunité de croissance qui permet une meilleure connaissance de soi et de son partenaire.
               </p>
 
               <a 
                 href="https://planify.fr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-primary text-white px-10 py-4 rounded-full text-lg hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover-lift"
+                className="inline-block bg-primary text-white px-8 md:px-10 py-3 md:py-4 rounded-full text-base md:text-lg hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover-lift"
               >
                 Prendre rendez-vous
               </a>
@@ -164,4 +187,3 @@ export default function Hero() {
     </section>
   );
 }
-

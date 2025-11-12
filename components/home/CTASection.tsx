@@ -1,16 +1,14 @@
 'use client';
 
-import Link from 'next/link';
-
 export default function CTASection() {
   return (
     <section className="py-24 bg-primary text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-4xl md:text-5xl font-serif mb-6">
-          Faire un premier pas en toute sécurité
+          Entrons en contact
         </h2>
         <p className="text-xl mb-10 opacity-90">
-          Prendre rendez-vous est une démarche positive vers le changement.
+          Prendre rendez-vous est une démarche positive vers le changement et la croissance de votre relation.
         </p>
         <a
           href="https://planify.fr"

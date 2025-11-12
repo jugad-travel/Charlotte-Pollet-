@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Host
+Host: https://charlottepollet.fr
+
+# Sitemaps
+Sitemap: https://charlottepollet.fr/sitemap.xml

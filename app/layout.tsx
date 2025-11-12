@@ -4,14 +4,14 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const siteUrl = "https://christine-solignac.vercel.app";
-const ogImage = `${siteUrl}/images/photo-christine.jpg`;
+const siteUrl = "https://charlottepollet.fr";
+const ogImage = `${siteUrl}/images/photo-charlotte.jpg`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Thérapie de couple & Conseil conjugal à Aix-en-Provence – Christine Solignac",
+  title: "Thérapie de couple Imago – Charlotte Pollet",
   description:
-    "Christine Solignac, conseillère conjugale et familiale à Aix-en-Provence. Accompagnement des couples, familles et individus vers une communication apaisée et des relations épanouies.",
+    "Charlotte Pollet, thérapeute de couple certifiée Imago. Accompagnement des couples vers une communication authentique et une relation épanouie grâce à la méthode Imago.",
   alternates: { 
     canonical: siteUrl,
     languages: {
@@ -22,22 +22,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     url: siteUrl,
-    siteName: "Christine Solignac – Thérapie de couple",
-    title: "Thérapie de couple & Conseil conjugal à Aix-en-Provence – Christine Solignac",
+    siteName: "Charlotte Pollet – Thérapie de couple Imago",
+    title: "Thérapie de couple Imago – Charlotte Pollet",
     description:
-      "Conseil conjugal et familial à Aix-en-Provence. Espace d'écoute, de dialogue et de reconstruction pour couples et familles.",
+      "Thérapie relationnelle Imago pour couples. Méthode constructive pour dissoudre les conflits et remettre du lien dans la relation.",
     images: [{ 
       url: ogImage, 
       width: 1200, 
       height: 630, 
-      alt: "Christine Solignac – Thérapie de couple à Aix-en-Provence" 
+      alt: "Charlotte Pollet – Thérapie de couple Imago" 
     }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Thérapie de couple & Conseil conjugal à Aix-en-Provence – Christine Solignac",
+    title: "Thérapie de couple Imago – Charlotte Pollet",
     description:
-      "Conseil conjugal et familial à Aix-en-Provence. Accompagnement des couples, familles et individus.",
+      "Thérapie relationnelle Imago pour couples. Accompagnement vers une communication authentique et une relation épanouie.",
     images: [ogImage],
   },
   robots: { 
@@ -67,19 +67,13 @@ export const viewport = {
 const orgLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Christine Solignac",
+  "name": "Charlotte Pollet",
   "url": siteUrl,
   "logo": ogImage,
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "2 rue Pascal Fieschi",
-    "addressLocality": "Aix-en-Provence",
-    "postalCode": "13080",
-    "addressCountry": "FR"
-  },
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "Rendez-vous",
+    "telephone": "+33618547154",
     "areaServed": "FR",
     "availableLanguage": "fr"
   }
@@ -88,18 +82,14 @@ const orgLd = {
 const serviceLd = {
   "@context": "https://schema.org",
   "@type": "CounselingService",
-  "name": "Conseil conjugal et familial & Thérapie de couple",
-  "areaServed": {
-    "@type": "City",
-    "name": "Aix-en-Provence"
-  },
+  "name": "Thérapie de couple Imago",
   "url": siteUrl,
   "image": ogImage,
   "provider": { 
     "@type": "Person", 
-    "name": "Christine Solignac" 
+    "name": "Charlotte Pollet" 
   },
-  "description": "Accompagnement des couples, familles et individus vers une communication apaisée et des relations épanouies."
+  "description": "Thérapie relationnelle Imago pour couples. Méthode constructive pour dissoudre les conflits et remettre du lien dans la relation."
 };
 
 export default function RootLayout({

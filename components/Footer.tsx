@@ -7,9 +7,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-serif mb-2">Christine Solignac</h3>
-            <p className="text-sm opacity-90">Conseil Conjugal et Familial</p>
-            <p className="text-sm opacity-90 mt-1">Thérapie de Couple</p>
+            <h3 className="text-2xl font-serif mb-2">Charlotte Pollet</h3>
+            <p className="text-sm opacity-90">Thérapie de couple Imago</p>
           </div>
 
           {/* Menu */}
@@ -17,8 +16,23 @@ export default function Footer() {
             <h4 className="text-lg font-serif mb-4">Menu</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/accompagnement" className="hover:opacity-80 transition">
-                  Mon accompagnement
+                <Link href="/" className="hover:opacity-80 transition">
+                  Accueil
+                </Link>
+              </li>
+              <li>
+                <Link href="/a-qui-sadresse" className="hover:opacity-80 transition">
+                  À qui s'adresse la thérapie ?
+                </Link>
+              </li>
+              <li>
+                <Link href="/pourquoi-faire-une-therapie" className="hover:opacity-80 transition">
+                  Pourquoi faire une thérapie ?
+                </Link>
+              </li>
+              <li>
+                <Link href="/temoignages" className="hover:opacity-80 transition">
+                  Témoignages
                 </Link>
               </li>
               <li>
@@ -28,7 +42,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/contact" className="hover:opacity-80 transition">
-                  Contact & rendez-vous
+                  Contactez-moi
                 </Link>
               </li>
             </ul>
@@ -36,22 +50,17 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-lg font-serif mb-4">Adresses de consultation</h4>
+            <h4 className="text-lg font-serif mb-4">Contact</h4>
             <div className="text-sm space-y-2 opacity-90">
               <p>
-                <strong>Aix-en-Provence</strong><br />
-                2 rue Pascal Fieschi<br />
-                Résidence l'Empyrée Bât. B, 1er étage
+                <strong>Téléphone</strong><br />
+                <a href="tel:+33618547154" className="hover:opacity-80 transition">
+                  06 18 54 71 54
+                </a>
               </p>
               <p className="mt-4">
-                <strong>Marseille 6e</strong><br />
-                Les jeudis après-midi<br />
-                Maison des Familles St François d'Assise<br />
-                116 boulevard Vauban
-              </p>
-              <p className="mt-4">
-                <strong>Visio</strong><br />
-                Consultations à distance disponibles
+                <strong>Consultations</strong><br />
+                En présentiel ou en visio-conférence
               </p>
             </div>
           </div>
@@ -60,7 +69,7 @@ export default function Footer() {
         <div className="border-t border-primary-light mt-8 pt-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm opacity-75 mb-4">
             <div>
-              <p>© {new Date().getFullYear()} Christine Solignac - Conseil Conjugal et Familial</p>
+              <p>© {new Date().getFullYear()} Charlotte Pollet - Thérapie de couple Imago</p>
             </div>
             <div className="text-right">
               <Link href="/mentions-legales" className="hover:opacity-80 transition">

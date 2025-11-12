@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://christine-solignac.vercel.app",
+  siteUrl: "https://charlottepollet.fr",
   generateRobotsTxt: true,
   changefreq: "monthly",
   priority: 0.7,
