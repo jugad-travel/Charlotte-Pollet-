@@ -18,6 +18,9 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
+            <Link href="/" className="text-primary hover:opacity-80 transition">
+              Accueil
+            </Link>
             <Link href="/accompagnement" className="text-primary hover:opacity-80 transition">
               Mon accompagnement
             </Link>
@@ -56,6 +59,13 @@ export default function Navbar() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden pb-4 space-y-4">
+            <Link 
+              href="/" 
+              className="block text-primary py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Accueil
+            </Link>
             <Link 
               href="/accompagnement" 
               className="block text-primary py-2"
