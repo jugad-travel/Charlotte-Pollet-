@@ -27,7 +27,7 @@ export default function Hero() {
     // Ajuster position image sur mobile
     const updateImagePosition = () => {
       if (window.innerWidth < 768) {
-        setImagePosition('left center');
+        setImagePosition('center center');
       } else {
         setImagePosition('center center');
       }
@@ -50,7 +50,7 @@ export default function Hero() {
             src="/images/christine solignac B&W.png"
             alt="Christine Solignac"
             fill
-            className="object-cover md:object-cover"
+            className="object-contain md:object-cover"
             style={{ objectPosition: imagePosition }}
             priority
             quality={90}
