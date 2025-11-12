@@ -7,7 +7,7 @@ import Modalites from '@/components/accompagnement/Modalites';
 
 export default function AccompagnementPage() {
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       <Intro />
       <ConsulterSeul />
       <VenirEnCouple />

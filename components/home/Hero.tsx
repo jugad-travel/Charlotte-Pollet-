@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Hero() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [imagePosition, setImagePosition] = useState('center center');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,7 +24,22 @@ export default function Hero() {
       observer.observe(sectionRef.current);
     }
 
-    return () => observer.disconnect();
+    // Ajuster position image sur mobile
+    const updateImagePosition = () => {
+      if (window.innerWidth < 768) {
+        setImagePosition('center 20%');
+      } else {
+        setImagePosition('center center');
+      }
+    };
+
+    updateImagePosition();
+    window.addEventListener('resize', updateImagePosition);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', updateImagePosition);
+    };
   }, []);
 
   return (
@@ -34,7 +50,8 @@ export default function Hero() {
             src="/images/christine solignac B&W.png"
             alt="Christine Solignac"
             fill
-            className="object-cover"
+            className="object-cover md:object-cover"
+            style={{ objectPosition: imagePosition }}
             priority
             quality={90}
           />
