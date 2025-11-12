@@ -58,7 +58,7 @@ export default function CeQueJePropose() {
             key={index}
             className="reveal relative w-full"
           >
-            <div className="relative h-[500px] md:h-[600px] w-full overflow-hidden">
+            <div className="relative h-[400px] sm:h-[450px] md:h-[600px] w-full overflow-hidden">
               <Image
                 src={service.image}
                 alt={service.title}
